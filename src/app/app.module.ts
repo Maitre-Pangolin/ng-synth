@@ -10,6 +10,7 @@ import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { KeyComponent } from './components/key/key.component';
 import { SettingsAreaComponent } from './components/settings-area/settings-area.component';
 import { PresetsComponent } from './components/presets/presets.component';
+import { SynthetizerComponent } from './components/synthetizer/synthetizer.component';
 
 
 
@@ -21,7 +22,8 @@ import { PresetsComponent } from './components/presets/presets.component';
     KeyboardComponent,
     KeyComponent,
     SettingsAreaComponent,
-    PresetsComponent
+    PresetsComponent,
+    SynthetizerComponent
   ],
   imports: [
     BrowserModule,

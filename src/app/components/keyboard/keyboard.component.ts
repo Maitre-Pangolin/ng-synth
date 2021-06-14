@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
   selector: 'app-keyboard',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KeyboardComponent implements OnInit {
 
-  constructor() { }
+  notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];;
+  octaves=['1','2','3','4'];
+
+  constructor(private audioService:AudioService) { }
 
   ngOnInit(): void {
+    
   }
 
 }
