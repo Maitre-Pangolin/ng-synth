@@ -1,1 +1,6 @@
-<p>key works!</p>
+<div
+  (click)="isPlaying ? stop() : play()"
+  [ngStyle]="{ 'border-color': isPlaying ? 'red' : 'black' }"
+>
+  {{ note }}
+</div>
