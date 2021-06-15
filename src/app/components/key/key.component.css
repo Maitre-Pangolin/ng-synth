@@ -1,10 +1,14 @@
-div {
+.key {
   border: 1px black solid;
   height: 80px;
   width: 50px;
   text-align: center;
 }
 
-div:hover {
+.key:hover {
   background-color: bisque;
+}
+
+div {
+  text-align: center;
 }

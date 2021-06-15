@@ -8,13 +8,13 @@ import { AudioService } from 'src/app/services/audio.service';
 })
 export class KeyboardComponent implements OnInit {
 
-  notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];;
-  octaves=['1','2','3','4'];
+keys:string[];
+selectedKey:string
 
   constructor(private audioService:AudioService) { }
 
   ngOnInit(): void {
-    
+    this.keys=this.audioService.initializeKeys()
   }
 
 }

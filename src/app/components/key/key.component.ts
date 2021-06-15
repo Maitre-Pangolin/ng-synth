@@ -1,35 +1,47 @@
 import { TokenError } from '@angular/compiler/src/ml_parser/lexer';
 import { Component, OnInit,Input } from '@angular/core';
+import { AudioService } from 'src/app/services/audio.service';
 import * as Tone from 'tone'
-
+import {SynthNote} from '../../SynthNote'
 @Component({
   selector: 'app-key',
   templateUrl: './key.component.html',
   styleUrls: ['./key.component.css']
 })
 export class KeyComponent implements OnInit {
-@Input() note:string
-osc:Tone.Oscillator;
-isPlaying=false;
+@Input() key:string
 
-  constructor() { }
+isPlaying=false
+synthNote:SynthNote;
+
+
+
+
+
+  constructor(private audioService:AudioService) { }
 
   ngOnInit(): void {
-
-    this.osc = new Tone.Oscillator(this.note,'sine').toDestination()
+  this.synthNote=this.audioService.createSynthNote(this.key)
   }
 
-  play(){
-    this.osc.start()
+  playNote(){
+    Tone.start()
+    this.synthNote.envelope.triggerAttack()
     this.isPlaying=true
+    //console.log(`playing note : ${this.synthNote.key}`)
+    //should emit event to give keyboard the note played
   }
 
-stop(){
-  this.osc.stop()
-  this.isPlaying=false
+  stopNote(){
+      this.synthNote.envelope.triggerRelease()
+      this.isPlaying=false
+      //console.log(`stopping note : ${this.synthNote.key}`)
+  }
+
+  mouseEntering(event){
+    if(event.buttons) this.playNote()
+  }
 }
 
 
   
-
-}

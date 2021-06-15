@@ -1,4 +1,4 @@
-<p>keyboard works!</p>
-<div *ngFor="let octave of octaves">
-  <app-key *ngFor="let note of notes" [note]="note + octave"></app-key>
+<p *ngIf="selectedKey">Last key played: {{ selectedKey }}</p>
+<div>
+  <app-key *ngFor="let key of keys" [key]="key"></app-key>
 </div>
