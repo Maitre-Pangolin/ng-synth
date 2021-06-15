@@ -11,6 +11,7 @@ import { KeyComponent } from './components/key/key.component';
 import { SettingsAreaComponent } from './components/settings-area/settings-area.component';
 import { PresetsComponent } from './components/presets/presets.component';
 import { SynthetizerComponent } from './components/synthetizer/synthetizer.component';
+import { SliderComponent } from './components/settings-area/slider/slider.component';
 
 
 
@@ -23,7 +24,8 @@ import { SynthetizerComponent } from './components/synthetizer/synthetizer.compo
     KeyComponent,
     SettingsAreaComponent,
     PresetsComponent,
-    SynthetizerComponent
+    SynthetizerComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
