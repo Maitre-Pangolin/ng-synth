@@ -1,0 +1,15 @@
+<div class="slider-container">
+  <label for="slider">{{ sliderParam.name }}</label>
+  <input
+    type="range"
+    name="slider"
+    id="slider"
+    [min]="sliderParam.min"
+    [max]="sliderParam.max"
+    [step]="sliderParam.step"
+    [value]="sliderParam.value"
+    [(ngModel)]="sliderParam.value"
+    (ngModelChange)="sliderParam.action()"
+  />
+  <span>{{ sliderParam.value }}</span>
+</div>
