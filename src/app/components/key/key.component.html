@@ -1,6 +1,10 @@
-<div
-  (click)="isPlaying ? stop() : play()"
-  [ngStyle]="{ 'border-color': isPlaying ? 'red' : 'black' }"
->
-  {{ note }}
+<div>
+  {{ synthNote.key }}
+  <div
+    class="key"
+    (mousedown)="$event.preventDefault(); playNote()"
+    (mouseup)="stopNote()"
+    (mouseleave)="stopNote()"
+    (mouseenter)="mouseEntering($event)"
+  ></div>
 </div>
