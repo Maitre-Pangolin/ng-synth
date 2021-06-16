@@ -4,6 +4,7 @@ import * as Tone from 'tone'
 import {SynthNote} from '../SynthNote'
 import {Preset} from '../Preset'
 import {PRESETS} from '../mock-preset'
+import { PresetService } from './preset.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,16 +14,19 @@ notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 octaves=['3','4']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
+preset:Preset
+
 presets:Preset[]=PRESETS;
 currentPreset:Preset=this.presets[0];
 
-  constructor() {}
+  constructor(private presetService:PresetService) {}
 
 
   initializeKeys():string[]{
     this.presets=PRESETS;
-    console.log(this.presets)
-    this.currentPreset=this.presets[0];
+    //console.log(this.presets)
+  this.currentPreset=this.presets[0];
+
     const keys = []
     this.octaves.forEach(octave=>{
       this.notes.forEach(note=>{
@@ -33,6 +37,7 @@ currentPreset:Preset=this.presets[0];
   }
 
     createSynthNote(key:string):SynthNote{
+
     const envelope =new Tone.AmplitudeEnvelope(this.currentPreset.adsr).toDestination();
     const oscillator= new Tone.Oscillator(key,this.currentPreset.waveForm).connect(envelope).start()
     const synthNote:SynthNote = {key,oscillator,envelope}
@@ -67,8 +72,6 @@ currentPreset:Preset=this.presets[0];
     console.log(`Waveform changed to ${waveForm}`)
   }
 
-debugAudioPreset(){
-  console.log('From audio-service',this.currentPreset)
-}
+
 
 }

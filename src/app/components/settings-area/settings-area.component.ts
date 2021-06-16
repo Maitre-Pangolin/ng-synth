@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ADSR,Preset } from 'src/app/Preset';
 import { AudioService } from 'src/app/services/audio.service';
+import { PresetService } from 'src/app/services/preset.service';
 
 @Component({
   selector: 'app-settings-area',
@@ -17,7 +18,7 @@ propSliderVolume;
 
 waveForms=['sine','square','sawtooth','triangle']
 
-  constructor(private audioService:AudioService) { }
+  constructor(private audioService:AudioService, private presetService:PresetService) { }
 
   ngOnInit(): void {
 
@@ -55,7 +56,8 @@ waveForms=['sine','square','sawtooth','triangle']
 
   debugPreset(){
     console.log("preset from settings area",this.preset)
-    this.audioService.debugAudioPreset()
+ 
+    this.presetService.getPreset(1).subscribe(pre=>{console.log(pre)})
   }
 
  
