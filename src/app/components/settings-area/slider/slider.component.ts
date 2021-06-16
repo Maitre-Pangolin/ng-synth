@@ -16,14 +16,8 @@ export class SliderComponent implements OnInit {
   value:0.5,
   action:()=>console.log('Default')
 }
-@Output() onChangeEmitter: EventEmitter<number>= new EventEmitter()
-  constructor() { }
-
-
 
   ngOnInit(): void {
   }
-onChange(){
 
-}
 }

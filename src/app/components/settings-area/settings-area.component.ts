@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ADSR } from 'src/app/Preset';
+import { ADSR,Preset } from 'src/app/Preset';
 import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
@@ -9,26 +9,30 @@ import { AudioService } from 'src/app/services/audio.service';
 })
 export class SettingsAreaComponent implements OnInit {
 
-adsr:ADSR;
 
+preset:Preset;
 propSliderRelease;
 propSliderVolume;
 
-selectedWaveForm='square'
-waveForms=['sine','square','sawtooth']
+
+waveForms=['sine','square','sawtooth','triangle']
 
   constructor(private audioService:AudioService) { }
 
   ngOnInit(): void {
-    this.adsr=this.audioService.getASDR();
+
+    this.preset=this.audioService.getPreset()
 
     this.propSliderRelease={
       name:'Release',
       min:0,
       max:1,
       step:0.1,
-      value:this.adsr.release,
-      action:()=> this.audioService.setRelease(this.propSliderRelease.value)
+      value:this.preset.adsr.release,
+      action:()=> {
+        this.audioService.setRelease(this.propSliderRelease.value)
+        this.preset.adsr.release=this.propSliderRelease.value
+      }
     }
 
     this.propSliderVolume={
@@ -36,14 +40,22 @@ waveForms=['sine','square','sawtooth']
       min:0,
       max:1,
       step:0.1,
-      value:1,
-      action:()=> this.audioService.setVolume(this.propSliderVolume.value)
+      value:this.preset.volume,
+      action:()=> {
+        this.audioService.setVolume(this.propSliderVolume.value)
+        this.preset.volume=this.propSliderRelease.value
+      }
     }
   }
 
   changeWaveForm(waveForm){
-    this.selectedWaveForm=waveForm
+    this.preset.waveForm=waveForm
     this.audioService.setWaveForm(waveForm)
+  }
+
+  debugPreset(){
+    console.log("preset from settings area",this.preset)
+    this.audioService.debugAudioPreset()
   }
 
  
