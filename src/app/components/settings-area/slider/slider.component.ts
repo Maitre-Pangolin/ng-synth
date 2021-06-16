@@ -7,7 +7,7 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
-@Input() sliderValue
+
 @Input() sliderParam={
   name:'default',
   min:0,

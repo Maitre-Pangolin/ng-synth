@@ -2,7 +2,7 @@
   {{ synthNote.key }}
   <div
     class="key"
-    (mousedown)="$event.preventDefault(); playNote()"
+    (mousedown)="$event.preventDefault(); startNote()"
     (mouseup)="stopNote()"
     (mouseleave)="stopNote()"
     (mouseenter)="mouseEntering($event)"

@@ -1,2 +1,13 @@
 <app-slider></app-slider>
-<app-slider [sliderParam]="propSlider"></app-slider>
+<app-slider [sliderParam]="propSliderRelease"></app-slider>
+<app-slider [sliderParam]="propSliderVolume"></app-slider>
+
+<button
+  *ngFor="let waveForm of waveForms"
+  [ngStyle]="{
+    'background-color': selectedWaveForm == waveForm ? 'red' : 'white'
+  }"
+  (click)="changeWaveForm(waveForm)"
+>
+  {{ waveForm }}
+</button>
