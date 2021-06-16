@@ -2,8 +2,8 @@ import { TokenError } from '@angular/compiler/src/ml_parser/lexer';
 import { Injectable } from '@angular/core';
 import * as Tone from 'tone'
 import {SynthNote} from '../SynthNote'
-import {ADSR} from '../Preset'
-
+import {Preset} from '../Preset'
+import {PRESETS} from '../mock-preset'
 @Injectable({
   providedIn: 'root'
 })
@@ -13,20 +13,16 @@ notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 octaves=['3','4']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
-
-adsr:ADSR = {
-  attack:0.1,
-  decay:0.1,
-  sustain:1,
-  release:0.4
-}
-
-
+presets:Preset[]=PRESETS;
+currentPreset:Preset=this.presets[0];
 
   constructor() {}
 
 
   initializeKeys():string[]{
+    this.presets=PRESETS;
+    console.log(this.presets)
+    this.currentPreset=this.presets[0];
     const keys = []
     this.octaves.forEach(octave=>{
       this.notes.forEach(note=>{
@@ -37,15 +33,15 @@ adsr:ADSR = {
   }
 
     createSynthNote(key:string):SynthNote{
-    const envelope =new Tone.AmplitudeEnvelope(this.adsr).toDestination();
-    const oscillator= new Tone.Oscillator(key,'sawtooth').connect(envelope).start()
+    const envelope =new Tone.AmplitudeEnvelope(this.currentPreset.adsr).toDestination();
+    const oscillator= new Tone.Oscillator(key,this.currentPreset.waveForm).connect(envelope).start()
     const synthNote:SynthNote = {key,oscillator,envelope}
     this.synthNotes.push(synthNote)
     return synthNote
   }
 
-  getASDR(){
-    return this.adsr;
+  getPreset(){
+    return this.currentPreset;
   }
 
   setRelease(release:number){
@@ -57,7 +53,7 @@ adsr:ADSR = {
 
   setVolume(volume:number){
     console.log(`Volume changed to ${volume}`)
-    //LINEAR MAPPING FOR VOLUME 0-1 to -60-0 Tone use decibels in LOG10 so maybe change to exponential mapping
+    //LINEAR MAPPING FOR VOLUME 0-1 to -60-0 Tone use decibels in LOG10 so maybe change to 10^ mapping
     volume = ((x,x0,y0,x1,y1)=>{return (y0*(x1-x)+y1*(x-x0))/(x1-x0)})(volume,0,-60,1,0)
     this.synthNotes.forEach(note=>{
       note.oscillator.volume.value=volume
@@ -71,16 +67,8 @@ adsr:ADSR = {
     console.log(`Waveform changed to ${waveForm}`)
   }
 
-  /*
-  changeEnvelope(ADSR:ADSR):void{
-    this.synthNotes.forEach(note=>{
-      note.envelope.release=ADSR.release
-      note.envelope.sustain=ADSR.sustain
-      note.envelope.decay=ADSR.decay
-      note.envelope.attack=ADSR.attack
-    })
-  }
-*/
-
+debugAudioPreset(){
+  console.log('From audio-service',this.currentPreset)
+}
 
 }

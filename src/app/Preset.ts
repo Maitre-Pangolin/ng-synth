@@ -4,3 +4,12 @@ export interface ADSR{
     sustain:number,
     release:number
 }
+
+export interface Preset{
+    id?:number,
+    adsr:ADSR,
+    volume:number,
+    waveForm,
+
+
+}

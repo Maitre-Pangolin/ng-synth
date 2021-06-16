@@ -5,9 +5,11 @@
 <button
   *ngFor="let waveForm of waveForms"
   [ngStyle]="{
-    'background-color': selectedWaveForm == waveForm ? 'red' : 'white'
+    'background-color': preset.waveForm == waveForm ? 'red' : 'white'
   }"
   (click)="changeWaveForm(waveForm)"
 >
   {{ waveForm }}
 </button>
+<br />
+<button (click)="debugPreset()">Debug</button>
