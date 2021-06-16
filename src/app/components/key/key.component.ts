@@ -24,7 +24,7 @@ synthNote:SynthNote;
   this.synthNote=this.audioService.createSynthNote(this.key)
   }
 
-  playNote(){
+  startNote(){
     Tone.start()
     this.synthNote.envelope.triggerAttack()
     this.isPlaying=true
@@ -39,7 +39,7 @@ synthNote:SynthNote;
   }
 
   mouseEntering(event){
-    if(event.buttons) this.playNote()
+    if(event.buttons) this.startNote()
   }
 }
 

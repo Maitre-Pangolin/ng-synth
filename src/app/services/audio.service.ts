@@ -15,8 +15,8 @@ octaves=['3','4']; //['1','2','3','4']
 synthNotes:SynthNote[]=[];
 
 adsr:ADSR = {
-  attack:0.2,
-  decay:0.5,
+  attack:0.1,
+  decay:0.1,
   sustain:1,
   release:0.4
 }
@@ -38,7 +38,7 @@ adsr:ADSR = {
 
     createSynthNote(key:string):SynthNote{
     const envelope =new Tone.AmplitudeEnvelope(this.adsr).toDestination();
-    const oscillator= new Tone.Oscillator(key,'sine').connect(envelope).start()
+    const oscillator= new Tone.Oscillator(key,'sawtooth').connect(envelope).start()
     const synthNote:SynthNote = {key,oscillator,envelope}
     this.synthNotes.push(synthNote)
     return synthNote
@@ -52,7 +52,23 @@ adsr:ADSR = {
     this.synthNotes.forEach(note=>{
       note.envelope.release=release
     })
-    console.log("Release changed")
+    console.log(`Release changed to ${release}`)
+  }
+
+  setVolume(volume:number){
+    console.log(`Volume changed to ${volume}`)
+    //LINEAR MAPPING FOR VOLUME 0-1 to -60-0 Tone use decibels in LOG10 so maybe change to exponential mapping
+    volume = ((x,x0,y0,x1,y1)=>{return (y0*(x1-x)+y1*(x-x0))/(x1-x0)})(volume,0,-60,1,0)
+    this.synthNotes.forEach(note=>{
+      note.oscillator.volume.value=volume
+    })
+  }
+
+  setWaveForm(waveForm){
+    this.synthNotes.forEach(note=>{
+      note.oscillator.set({type:waveForm})
+    })
+    console.log(`Waveform changed to ${waveForm}`)
   }
 
   /*
