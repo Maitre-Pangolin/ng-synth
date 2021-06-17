@@ -12,11 +12,12 @@ export class SettingsAreaComponent implements OnInit {
 
 
 preset:Preset;
+propSliderAttack;
 propSliderRelease;
 propSliderVolume;
+propSliderPanner;
 
-
-waveForms=['sine','square','sawtooth','triangle']
+waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbol:String.fromCharCode(0x03A0)},{name:'sawtooth',symbol:String.fromCharCode(0x1D0E)},{name:'triangle',symbol:String.fromCharCode(0x02C4)}]
 
   constructor(private audioService:AudioService, private presetService:PresetService) { }
 
@@ -38,6 +39,18 @@ waveForms=['sine','square','sawtooth','triangle']
           this.preset.adsr.release=this.propSliderRelease.value
         }
       }
+
+      this.propSliderAttack={
+        name:'Attack',
+        min:0,
+        max:1,
+        step:0.1,
+        value:this.preset.adsr.attack,
+        action:()=> {
+          this.audioService.setAttack(this.propSliderAttack.value)
+          this.preset.adsr.attack=this.propSliderAttack.value
+        }
+      }
   
       this.propSliderVolume={
         name:'Volume',
@@ -50,14 +63,25 @@ waveForms=['sine','square','sawtooth','triangle']
           this.preset.volume=this.propSliderRelease.value
         }
       }
+      this.propSliderPanner={
+        name:'Panner',
+        min:0,
+        max:10,
+        step:1,
+        value:this.preset.panner,
+        action:()=> {
+          this.audioService.setPanner(this.propSliderPanner.value)
+          this.preset.volume=this.propSliderPanner.value
+        }
+      }
     }
     )
 
   }
 
   changeWaveForm(waveForm){
-    this.preset.waveForm=waveForm
-    this.audioService.setWaveForm(waveForm)
+    this.preset.waveForm=waveForm.name
+    this.audioService.setWaveForm(waveForm.name)
   }
 
   debugPreset(){

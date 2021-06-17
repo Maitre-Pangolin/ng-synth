@@ -10,6 +10,7 @@ export interface Preset{
     adsr:ADSR,
     volume:number,
     waveForm,
+    panner,
 
 
 }
