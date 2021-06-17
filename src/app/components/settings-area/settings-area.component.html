@@ -1,15 +1,24 @@
-<app-slider></app-slider>
-<app-slider [sliderParam]="propSliderRelease"></app-slider>
-<app-slider [sliderParam]="propSliderVolume"></app-slider>
-
-<button
-  *ngFor="let waveForm of waveForms"
-  [ngStyle]="{
-    'background-color': preset.waveForm == waveForm ? 'red' : 'white'
-  }"
-  (click)="changeWaveForm(waveForm)"
->
-  {{ waveForm }}
-</button>
-<br />
-<button (click)="debugPreset()">Debug</button>
+<ng-container *ngIf="preset">
+  <div class="container-settings">
+    <h3>ADSR</h3>
+    <app-slider [sliderParam]="propSliderAttack"></app-slider>
+    <app-slider [sliderParam]="propSliderRelease"></app-slider>
+  </div>
+  <div class="container-settings">
+    <app-slider [sliderParam]="propSliderVolume"></app-slider>
+    <app-slider [sliderParam]="propSliderPanner"></app-slider>
+    <app-slider [sliderParam]="propSliderFilter"></app-slider>
+  </div>
+  <div class="container-settings">
+    <h2>Waveform</h2>
+    <button
+      *ngFor="let waveForm of waveForms"
+      [ngStyle]="{
+        'background-color': preset.waveForm == waveForm.name ? 'red' : 'white'
+      }"
+      (click)="changeWaveForm(waveForm)"
+    >
+      {{ waveForm.symbol }}
+    </button>
+  </div>
+</ng-container>

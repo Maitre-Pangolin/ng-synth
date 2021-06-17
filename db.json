@@ -6,9 +6,11 @@
             "attack":0.1,
             "decay":0.1,
             "sustain":0.8,
-            "release":1
+            "release":0.5
         },
         "volume":1,
+        "panner":0,
+        "filter":0,
         "waveForm":"square"
         },
         {
@@ -19,8 +21,10 @@
             "sustain":0.5,
             "release":0.2
         },
-        "volume":1,
-        "waveForm":"square"
+        "volume":0.8,
+        "panner":2,
+        "filter":4,
+        "waveForm":"triangle"
         }
 
     ]

@@ -14,39 +14,33 @@ notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 octaves=['3','4']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
-preset:Preset
-
-presets:Preset[]=PRESETS;
-currentPreset:Preset=this.presets[0];
-
+//autoFilter = new Tone.AutoFilter(0.1).toDestination().start()
   constructor(private presetService:PresetService) {}
 
+  createSynthNotes(preset:Preset){
+        this.octaves.forEach(octave=>{
+          this.notes.forEach(note=>{
+            const key=note+octave
+            
+            
+            const envelope =new Tone.AmplitudeEnvelope(preset.adsr).toDestination();
+            const filter = new Tone.AutoFilter(0).connect(envelope).start()
+            const panner = new Tone.AutoPanner(0).connect(filter).start()
+            const oscillator= new Tone.Oscillator(key,preset.waveForm).connect(panner).start()
 
-  initializeKeys():string[]{
-    this.presets=PRESETS;
-    //console.log(this.presets)
-  this.currentPreset=this.presets[0];
-
-    const keys = []
-    this.octaves.forEach(octave=>{
-      this.notes.forEach(note=>{
-        keys.push(note+octave)
-      })
-    })
-    return keys
+            const synthNote:SynthNote = {key,oscillator,envelope,panner,filter}
+            this.synthNotes.push(synthNote)
+          })
+        })
+      this.setVolume(preset.volume)
   }
 
-    createSynthNote(key:string):SynthNote{
-
-    const envelope =new Tone.AmplitudeEnvelope(this.currentPreset.adsr).toDestination();
-    const oscillator= new Tone.Oscillator(key,this.currentPreset.waveForm).connect(envelope).start()
-    const synthNote:SynthNote = {key,oscillator,envelope}
-    this.synthNotes.push(synthNote)
-    return synthNote
+  startNote(key:string){
+    this.synthNotes.find(note=>note.key==key).envelope.triggerAttack()
   }
 
-  getPreset(){
-    return this.currentPreset;
+  stopNote(key:string){
+    this.synthNotes.find(note=>note.key==key).envelope.triggerRelease()
   }
 
   setRelease(release:number){
@@ -54,6 +48,27 @@ currentPreset:Preset=this.presets[0];
       note.envelope.release=release
     })
     console.log(`Release changed to ${release}`)
+  }
+
+  setAttack(attack:number){
+    this.synthNotes.forEach(note=>{
+      note.envelope.attack=attack
+    })
+    console.log(`Attack changed to ${attack}`)
+  }
+
+  setPanner(panner:number){
+    this.synthNotes.forEach(note=>{
+      note.panner.frequency.value=panner
+    })
+    console.log(`Panner changed to ${panner}`)
+  }
+
+  setFilter(filter:number){
+    this.synthNotes.forEach(note=>{
+      note.filter.frequency.value=filter
+    })
+    console.log(`Filter changed to ${filter}`)
   }
 
   setVolume(volume:number){

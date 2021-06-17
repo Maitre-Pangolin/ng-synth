@@ -11,6 +11,8 @@ export const PRESETS:Preset[]=[
     },
     volume:1,
     waveForm:'square',
+    panner:0,
+    filter:0
     },
     {
     adsr:{
@@ -21,5 +23,7 @@ export const PRESETS:Preset[]=[
     },
     volume:0.8,
     waveForm:'triangle',
+    panner:0,
+    filter:0,
     },
 ]
