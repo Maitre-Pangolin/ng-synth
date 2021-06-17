@@ -1,17 +1,17 @@
 <ng-container *ngIf="preset">
+  <app-slider [sliderParam]="propSliderAttack"></app-slider>
   <app-slider [sliderParam]="propSliderRelease"></app-slider>
   <app-slider [sliderParam]="propSliderVolume"></app-slider>
+  <app-slider [sliderParam]="propSliderPanner"></app-slider>
+  <app-slider [sliderParam]="propSliderFilter"></app-slider>
 
   <button
     *ngFor="let waveForm of waveForms"
     [ngStyle]="{
-      'background-color': preset.waveForm == waveForm ? 'red' : 'white'
+      'background-color': preset.waveForm == waveForm.name ? 'red' : 'white'
     }"
     (click)="changeWaveForm(waveForm)"
   >
-    {{ waveForm }}
+    {{ waveForm.symbol }}
   </button>
-
-  <br />
-  <button (click)="debugPreset()">Debug</button>
 </ng-container>

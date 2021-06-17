@@ -9,6 +9,8 @@
             "release":0.5
         },
         "volume":1,
+        "panner":0,
+        "filter":0,
         "waveForm":"square"
         },
         {
@@ -20,6 +22,8 @@
             "release":0.2
         },
         "volume":0.8,
+        "panner":2,
+        "filter":4,
         "waveForm":"triangle"
         }
 
