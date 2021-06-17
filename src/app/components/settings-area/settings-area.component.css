@@ -1,0 +1,19 @@
+.container-settings {
+  border: 2px black solid;
+  margin: 20px;
+  padding: 10px;
+  height: fit-content;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.container-settings h3 {
+  position: relative;
+  top: -25px;
+  left: 5px;
+  margin: 0;
+  background-color: white;
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+}
