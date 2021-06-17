@@ -14,39 +14,28 @@ notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 octaves=['3','4']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
-preset:Preset
-
-presets:Preset[]=PRESETS;
-currentPreset:Preset=this.presets[0];
 
   constructor(private presetService:PresetService) {}
 
-
-  initializeKeys():string[]{
-    this.presets=PRESETS;
-    //console.log(this.presets)
-  this.currentPreset=this.presets[0];
-
-    const keys = []
-    this.octaves.forEach(octave=>{
-      this.notes.forEach(note=>{
-        keys.push(note+octave)
-      })
-    })
-    return keys
+  createSynthNotes(preset:Preset){
+        this.octaves.forEach(octave=>{
+          this.notes.forEach(note=>{
+            const key=note+octave
+            const envelope =new Tone.AmplitudeEnvelope(preset.adsr).toDestination();
+            const oscillator= new Tone.Oscillator(key,preset.waveForm).connect(envelope).start()
+            const synthNote:SynthNote = {key,oscillator,envelope}
+            this.synthNotes.push(synthNote)
+          })
+        })
+      this.setVolume(preset.volume)
   }
 
-    createSynthNote(key:string):SynthNote{
-
-    const envelope =new Tone.AmplitudeEnvelope(this.currentPreset.adsr).toDestination();
-    const oscillator= new Tone.Oscillator(key,this.currentPreset.waveForm).connect(envelope).start()
-    const synthNote:SynthNote = {key,oscillator,envelope}
-    this.synthNotes.push(synthNote)
-    return synthNote
+  startNote(key:string){
+    this.synthNotes.find(note=>note.key==key).envelope.triggerAttack()
   }
 
-  getPreset(){
-    return this.currentPreset;
+  stopNote(key:string){
+    this.synthNotes.find(note=>note.key==key).envelope.triggerRelease()
   }
 
   setRelease(release:number){
