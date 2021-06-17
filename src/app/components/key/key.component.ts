@@ -11,31 +11,18 @@ import {SynthNote} from '../../SynthNote'
 export class KeyComponent implements OnInit {
 @Input() key:string
 
-isPlaying=false
-synthNote:SynthNote;
-
-
-
-
-
   constructor(private audioService:AudioService) { }
 
   ngOnInit(): void {
-  this.synthNote=this.audioService.createSynthNote(this.key)
   }
 
   startNote(){
     Tone.start()
-    this.synthNote.envelope.triggerAttack()
-    this.isPlaying=true
-    //console.log(`playing note : ${this.synthNote.key}`)
-    //should emit event to give keyboard the note played
+    this.audioService.startNote(this.key)
   }
 
   stopNote(){
-      this.synthNote.envelope.triggerRelease()
-      this.isPlaying=false
-      //console.log(`stopping note : ${this.synthNote.key}`)
+      this.audioService.stopNote(this.key)
   }
 
   mouseEntering(event){

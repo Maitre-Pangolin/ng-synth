@@ -22,31 +22,37 @@ waveForms=['sine','square','sawtooth','triangle']
 
   ngOnInit(): void {
 
-    this.preset=this.audioService.getPreset()
-
-    this.propSliderRelease={
-      name:'Release',
-      min:0,
-      max:1,
-      step:0.1,
-      value:this.preset.adsr.release,
-      action:()=> {
-        this.audioService.setRelease(this.propSliderRelease.value)
-        this.preset.adsr.release=this.propSliderRelease.value
+    //this.preset=this.audioService.getPreset()
+    this.presetService.getPreset(1).subscribe(preset=>{
+      this.audioService.createSynthNotes(preset)
+      this.preset=preset
+ 
+      this.propSliderRelease={
+        name:'Release',
+        min:0,
+        max:1,
+        step:0.1,
+        value:this.preset.adsr.release,
+        action:()=> {
+          this.audioService.setRelease(this.propSliderRelease.value)
+          this.preset.adsr.release=this.propSliderRelease.value
+        }
+      }
+  
+      this.propSliderVolume={
+        name:'Volume',
+        min:0,
+        max:1,
+        step:0.1,
+        value:this.preset.volume,
+        action:()=> {
+          this.audioService.setVolume(this.propSliderVolume.value)
+          this.preset.volume=this.propSliderRelease.value
+        }
       }
     }
+    )
 
-    this.propSliderVolume={
-      name:'Volume',
-      min:0,
-      max:1,
-      step:0.1,
-      value:this.preset.volume,
-      action:()=> {
-        this.audioService.setVolume(this.propSliderVolume.value)
-        this.preset.volume=this.propSliderRelease.value
-      }
-    }
   }
 
   changeWaveForm(waveForm){
