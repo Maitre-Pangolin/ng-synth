@@ -5,4 +5,5 @@ export interface SynthNote{
     oscillator:Tone.Oscillator
     envelope:Tone.Envelope
     panner:Tone.AutoPanner
+    filter:Tone.AutoFilter
 }

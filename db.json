@@ -10,6 +10,7 @@
         },
         "volume":1,
         "panner":0,
+        "filter":0,
         "waveForm":"square"
         },
         {
@@ -22,6 +23,7 @@
         },
         "volume":0.8,
         "panner":2,
+        "filter":4,
         "waveForm":"triangle"
         }
 

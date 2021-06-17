@@ -24,11 +24,11 @@ synthNotes:SynthNote[]=[];
             
             
             const envelope =new Tone.AmplitudeEnvelope(preset.adsr).toDestination();
-            const autoFilter = new Tone.AutoFilter(0).connect(envelope).start()
-            const panner = new Tone.AutoPanner(0).connect(autoFilter).start()
+            const filter = new Tone.AutoFilter(0).connect(envelope).start()
+            const panner = new Tone.AutoPanner(0).connect(filter).start()
             const oscillator= new Tone.Oscillator(key,preset.waveForm).connect(panner).start()
 
-            const synthNote:SynthNote = {key,oscillator,envelope,panner}
+            const synthNote:SynthNote = {key,oscillator,envelope,panner,filter}
             this.synthNotes.push(synthNote)
           })
         })
@@ -62,6 +62,13 @@ synthNotes:SynthNote[]=[];
       note.panner.frequency.value=panner
     })
     console.log(`Panner changed to ${panner}`)
+  }
+
+  setFilter(filter:number){
+    this.synthNotes.forEach(note=>{
+      note.filter.frequency.value=filter
+    })
+    console.log(`Filter changed to ${filter}`)
   }
 
   setVolume(volume:number){
