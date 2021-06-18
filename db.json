@@ -3,15 +3,15 @@
     {
       "id": 1,
       "adsr": {
-        "attack": 0.1,
-        "decay": 0.5,
-        "sustain": 0.2,
-        "release": 0.5
+        "attack": 1,
+        "decay": 2,
+        "sustain": 1,
+        "release": 1
       },
       "volume": 1,
       "panner": 0,
       "filter": 0,
-      "waveForm": "square"
+      "waveForm": "sawtooth"
     },
     {
       "id": 2,
