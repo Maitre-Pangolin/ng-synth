@@ -1,1 +1,3 @@
 <h1>ANGULAR AWESOME SYNTH MARK-I</h1>
+<a routerLink="/about" *ngIf="hasRoute('/')">About</a>
+<a routerLink="/" *ngIf="hasRoute('/about')">Synth</a>

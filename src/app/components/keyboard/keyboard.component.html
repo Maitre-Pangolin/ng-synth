@@ -1,4 +1,3 @@
-<p *ngIf="selectedKey">Last key played: {{ selectedKey }}</p>
-<div>
+<div *ngIf="audioService.isLoaded">
   <app-key *ngFor="let key of keys" [key]="key"></app-key>
 </div>

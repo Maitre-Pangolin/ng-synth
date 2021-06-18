@@ -16,15 +16,28 @@
     {
       "id": 2,
       "adsr": {
-        "attack": 0.8,
-        "decay": 0.8,
-        "sustain": 0.8,
-        "release": 0.8
+        "attack": 0.1,
+        "decay": 0.5,
+        "sustain": 0.2,
+        "release": 0.5
       },
-      "volume": 0.6,
-      "panner": 7,
-      "filter": 4,
-      "waveForm": "sawtooth"
+      "volume": 0.1,
+      "panner": 0,
+      "filter": 0,
+      "waveForm": "square"
+    },
+    {
+      "id": 3,
+      "adsr": {
+        "attack": 0.1,
+        "decay": 0.5,
+        "sustain": 0.2,
+        "release": 0.5
+      },
+      "volume": 0.1,
+      "panner": 0,
+      "filter": 0,
+      "waveForm": "square"
     }
   ]
 }

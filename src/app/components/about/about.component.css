@@ -1,0 +1,23 @@
+h1,
+h2,
+p {
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: 1.5em;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 1.5em;
+}
+
+p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 20px;
+  margin-bottom: 2em;
+}
