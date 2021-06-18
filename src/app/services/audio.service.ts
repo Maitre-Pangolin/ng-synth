@@ -37,6 +37,7 @@ synthNotes:SynthNote[]=[];
         })
 
       this.setVolume(preset.volume)
+      this.isLoaded=true
   }
 
   startNote(key:string){
