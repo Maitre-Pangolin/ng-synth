@@ -11,23 +11,21 @@ import { PresetService } from './preset.service';
 export class AudioService {
 
 notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-octaves=['3','4','5']; //['1','2','3','4']
+octaves=['1','2','3','4']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
 //autoFilter = new Tone.AutoFilter(0.1).toDestination().start()
   constructor(private presetService:PresetService) {}
 
   createSynthNotes(preset:Preset){
+    
+    
         this.octaves.forEach(octave=>{
+          const context = new Tone.Context({ latencyHint: "playback" });
+          Tone.setContext(context);
           this.notes.forEach(note=>{
+            
             const key=note+octave
-            
-            const context = new Tone.Context({ latencyHint: "playback" });
-            Tone.setContext(context);
-            console.log(Tone.getContext().latencyHint);
-            console.log(Tone.getContext().destination);
-
-            
             const envelope =new Tone.AmplitudeEnvelope(preset.adsr).toDestination();
             const filter = new Tone.AutoFilter(0).connect(envelope).start()
             const panner = new Tone.AutoPanner(0).connect(filter).start()
@@ -37,6 +35,7 @@ synthNotes:SynthNote[]=[];
             this.synthNotes.push(synthNote)
           })
         })
+
       this.setVolume(preset.volume)
   }
 

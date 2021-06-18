@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ADSR,Preset } from 'src/app/Preset';
 import { AudioService } from 'src/app/services/audio.service';
 import { PresetService } from 'src/app/services/preset.service';
-import { KeyComponent } from '../key/key.component';
 
 @Component({
   selector: 'app-settings-area',
@@ -20,7 +19,7 @@ propSliderRelease;
 propSliderVolume;
 propSliderPanner;
 propSliderFilter;
-keycomp:KeyComponent;
+
 
 waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbol:String.fromCharCode(0x03A0)},{name:'sawtooth',symbol:String.fromCharCode(0x1D0E)},{name:'triangle',symbol:String.fromCharCode(0x02C4)}]
 
@@ -64,11 +63,8 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
         step:0.1,
         value:this.preset.adsr.sustain,
         action:()=> {
-          this.audioService.setDecay(this.propSliderSustain.value)
+          this.audioService.setSustain(this.propSliderSustain.value)
           this.preset.adsr.sustain=this.propSliderSustain.value
-          if(this.propSliderSustain.value == 0){
-            this.keycomp.stopNote();
-          }
         }
       }
   
