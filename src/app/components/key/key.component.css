@@ -1,8 +1,11 @@
 .key {
   border: 1px black solid;
-  height: 80px;
-  width: 50px;
+  height: 160px;
+  width: 40px;
   text-align: center;
+  display: flex;
+  position: relative;
+  border-radius: 5px;
 }
 
 .key:hover {
@@ -11,4 +14,22 @@
 
 div {
   text-align: center;
+}
+
+span {
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+}
+.white-key {
+  background-color: white;
+  z-index: 1;
+}
+
+.black-key {
+  width: 20px;
+  height: 120px;
+  background-color: darkblue;
+  margin: 0 -10px 0 -10px;
+  z-index: 2;
 }

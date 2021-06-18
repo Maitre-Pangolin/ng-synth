@@ -11,7 +11,7 @@ import { PresetService } from './preset.service';
 export class AudioService {
 
 notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-octaves=['1','2','3','4']; //['1','2','3','4']
+octaves=['1','2','3','4','5']; //['1','2','3','4']
 isLoaded=false
 synthNotes:SynthNote[]=[];
 //autoFilter = new Tone.AutoFilter(0.1).toDestination().start()

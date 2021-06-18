@@ -10,7 +10,6 @@ import { AboutComponent } from './components/about/about.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { KeyComponent } from './components/key/key.component';
 import { SettingsAreaComponent } from './components/settings-area/settings-area.component';
-import { PresetsComponent } from './components/presets/presets.component';
 import { SynthetizerComponent } from './components/synthetizer/synthetizer.component';
 import { SliderComponent } from './components/settings-area/slider/slider.component';
 
@@ -24,7 +23,6 @@ import { SliderComponent } from './components/settings-area/slider/slider.compon
     KeyboardComponent,
     KeyComponent,
     SettingsAreaComponent,
-    PresetsComponent,
     SynthetizerComponent,
     SliderComponent
   ],

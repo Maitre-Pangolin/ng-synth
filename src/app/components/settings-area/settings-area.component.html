@@ -7,20 +7,29 @@
     <app-slider [sliderParam]="propSliderRelease"></app-slider>
   </div>
   <div class="container-settings">
-    <app-slider [sliderParam]="propSliderVolume"></app-slider>
+    <h3>Effects</h3>
     <app-slider [sliderParam]="propSliderPanner"></app-slider>
     <app-slider [sliderParam]="propSliderFilter"></app-slider>
   </div>
-  <div class="container-settings">
-    <h2>Waveform</h2>
-    <button
-      *ngFor="let waveForm of waveForms"
-      [ngStyle]="{
-        'background-color': preset.waveForm == waveForm.name ? 'red' : 'white'
-      }"
-      (click)="changeWaveForm(waveForm)"
-    >
-      {{ waveForm.symbol }}
-    </button>
+  <div>
+    <div class="container-settings">
+      <h3>Waveform</h3>
+      <div class="btn-container">
+        <button
+          *ngFor="let waveForm of waveForms"
+          [ngStyle]="{
+            'background-color':
+              preset.waveForm == waveForm.name ? 'red' : 'white'
+          }"
+          (click)="changeWaveForm(waveForm)"
+        >
+          {{ waveForm.symbol }}
+        </button>
+      </div>
+    </div>
+    <div class="container-settings">
+      <h3>Master</h3>
+      <app-slider [sliderParam]="propSliderVolume"></app-slider>
+    </div>
   </div>
 </ng-container>
