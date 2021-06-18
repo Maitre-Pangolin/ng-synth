@@ -138,7 +138,12 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
       this.preset=preset;
       this.propSliderVolume.value=this.preset.volume
       this.propSliderAttack.value=this.preset.adsr.attack
-      //ADD REMAINING METHOD
+      this.propSliderRelease.value=this.preset.adsr.release
+      this.propSliderSustain.value=this.preset.adsr.sustain
+      this.propSliderDecay.value=this.preset.adsr.decay
+      this.propSliderPanner.value=this.preset.panner
+      this.propSliderFilter.value=this.preset.filter
+      
     })
   }
 
