@@ -10,6 +10,6 @@
     (mouseleave)="stopNote()"
     (mouseenter)="mouseEntering($event)"
   >
-    <span>{{ key.match(myRegex) ? key : "" }}</span>
+    <span *ngIf="key.match(myRegex)">{{ key }}</span>
   </div>
 </div>

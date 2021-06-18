@@ -1,31 +1,30 @@
 {
-    "presets":[
-        {
-        "id":1,
-        "adsr":{
-            "attack":0.1,
-            "decay":0.5,
-            "sustain":0.2,
-            "release":0.5
-        },
-        "volume":1,
-        "panner":0,
-        "filter":0,
-        "waveForm":"square"
-        },
-        {
-        "id":2,
-        "adsr":{
-            "attack":0.2,
-            "decay":0.1,
-            "sustain":0.5,
-            "release":0.2
-        },
-        "volume":0.8,
-        "panner":2,
-        "filter":4,
-        "waveForm":"triangle"
-        }
-
-    ]
+  "presets": [
+    {
+      "id": 1,
+      "adsr": {
+        "attack": 0.1,
+        "decay": 0.5,
+        "sustain": 0.2,
+        "release": 0.5
+      },
+      "volume": 1,
+      "panner": 0,
+      "filter": 0,
+      "waveForm": "square"
+    },
+    {
+      "id": 2,
+      "adsr": {
+        "attack": 0.8,
+        "decay": 0.8,
+        "sustain": 0.8,
+        "release": 0.8
+      },
+      "volume": 0.6,
+      "panner": 7,
+      "filter": 4,
+      "waveForm": "sawtooth"
+    }
+  ]
 }

@@ -18,10 +18,11 @@ synthNotes:SynthNote[]=[];
   constructor(private presetService:PresetService) {}
 
   createSynthNotes(preset:Preset){
-    
-    
+
         this.octaves.forEach(octave=>{
-          const context = new Tone.Context({ latencyHint: "playback" });
+          let context = new Tone.Context({ latencyHint: "balanced" });
+          Tone.setContext(context);   
+          context = new Tone.Context({ latencyHint: "playback" });
           Tone.setContext(context);
           this.notes.forEach(note=>{
             
