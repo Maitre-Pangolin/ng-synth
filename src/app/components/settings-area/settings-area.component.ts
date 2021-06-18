@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ADSR,Preset } from 'src/app/Preset';
 import { AudioService } from 'src/app/services/audio.service';
 import { PresetService } from 'src/app/services/preset.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-settings-area',
@@ -23,7 +24,7 @@ propSliderFilter;
 
 waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbol:String.fromCharCode(0x03A0)},{name:'sawtooth',symbol:String.fromCharCode(0x1D0E)},{name:'triangle',symbol:String.fromCharCode(0x02C4)}]
 
-  constructor(private audioService:AudioService, private presetService:PresetService) { }
+  constructor(private audioService:AudioService, private presetService:PresetService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -116,6 +117,10 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
         }
       }
 
+    },
+    (error)=>{
+      console.log('Not Loaded')
+      this.router.navigate(['/about']) //SHOULD BE ROUTED TO A PAGE SAYING THAT SERVER IS NOT REACHABLE (START JSON-SERVER)
     }
     )
 

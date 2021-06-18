@@ -11,7 +11,7 @@ import {SynthNote} from '../../SynthNote'
 export class KeyComponent implements OnInit {
 @Input() key:string
 
-  constructor(private audioService:AudioService) { }
+  constructor(public audioService:AudioService) { }
 
   ngOnInit(): void {
   }
