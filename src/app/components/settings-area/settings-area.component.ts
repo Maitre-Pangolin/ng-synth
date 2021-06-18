@@ -89,7 +89,7 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
         value:this.preset.volume,
         action:()=> {
           this.audioService.setVolume(this.propSliderVolume.value)
-          this.preset.volume=this.propSliderRelease.value
+          this.preset.volume=this.propSliderVolume.value
         }
       }
 
@@ -101,7 +101,7 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
         value:this.preset.panner,
         action:()=> {
           this.audioService.setPanner(this.propSliderPanner.value)
-          this.preset.volume=this.propSliderPanner.value
+          this.preset.panner=this.propSliderPanner.value
         }
       }
 
@@ -113,7 +113,7 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
         value:this.preset.filter,
         action:()=> {
           this.audioService.setFilter(this.propSliderFilter.value)
-          this.preset.volume=this.propSliderFilter.value
+          this.preset.filter=this.propSliderFilter.value
         }
       }
 
@@ -130,4 +130,18 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
     this.preset.waveForm=waveForm.name
     this.audioService.setWaveForm(waveForm.name)
   }
+
+  loadPreset(id:number){
+    this.presetService.getPreset(id).subscribe((preset)=>{
+      this.preset=preset;
+      this.propSliderVolume.value=this.preset.volume
+      this.propSliderAttack.value=this.preset.adsr.attack
+      //ADD REMAINING METHOD
+    })
+  }
+
+  savePreset(id:number){
+    this.presetService.setPreset(id,this.preset).subscribe((preset)=>{})
+  }
+
 }
