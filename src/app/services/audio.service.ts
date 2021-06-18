@@ -11,7 +11,7 @@ import { PresetService } from './preset.service';
 export class AudioService {
 
 notes = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-octaves=['3','4']; //['1','2','3','4']
+octaves=['3','4','5']; //['1','2','3','4']
 
 synthNotes:SynthNote[]=[];
 //autoFilter = new Tone.AutoFilter(0.1).toDestination().start()
@@ -22,6 +22,11 @@ synthNotes:SynthNote[]=[];
           this.notes.forEach(note=>{
             const key=note+octave
             
+            const context = new Tone.Context({ latencyHint: "playback" });
+            Tone.setContext(context);
+            console.log(Tone.getContext().latencyHint);
+            console.log(Tone.getContext().destination);
+
             
             const envelope =new Tone.AmplitudeEnvelope(preset.adsr).toDestination();
             const filter = new Tone.AutoFilter(0).connect(envelope).start()
@@ -55,6 +60,20 @@ synthNotes:SynthNote[]=[];
       note.envelope.attack=attack
     })
     console.log(`Attack changed to ${attack}`)
+  }
+
+  setDecay(decay:number){
+    this.synthNotes.forEach(note=>{
+      note.envelope.decay=decay
+    })
+    console.log(`Decay changed to ${decay}`)
+  }
+
+  setSustain(sustain:number){
+    this.synthNotes.forEach(note=>{
+      note.envelope.sustain=sustain
+    })
+    console.log(`Sustain changed to ${sustain}`)
   }
 
   setPanner(panner:number){
