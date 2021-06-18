@@ -4,8 +4,8 @@
         "id":1,
         "adsr":{
             "attack":0.1,
-            "decay":0.1,
-            "sustain":0.8,
+            "decay":0.5,
+            "sustain":0.2,
             "release":0.5
         },
         "volume":1,
