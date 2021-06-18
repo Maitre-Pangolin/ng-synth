@@ -1,10 +1,15 @@
 <div *ngIf="audioService.isLoaded">
-  {{ key }}
   <div
     class="key"
+    [ngClass]="{
+      'black-key': key.includes('#'),
+      'white-key': !key.includes('#')
+    }"
     (mousedown)="$event.preventDefault(); startNote()"
     (mouseup)="stopNote()"
     (mouseleave)="stopNote()"
     (mouseenter)="mouseEntering($event)"
-  ></div>
+  >
+    <span>{{ key.match(myRegex) ? key : "" }}</span>
+  </div>
 </div>

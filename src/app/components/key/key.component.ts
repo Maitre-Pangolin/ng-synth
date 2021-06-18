@@ -10,7 +10,7 @@ import {SynthNote} from '../../SynthNote'
 })
 export class KeyComponent implements OnInit {
 @Input() key:string
-
+myRegex=/^C\d$/gm;
   constructor(public audioService:AudioService) { }
 
   ngOnInit(): void {
