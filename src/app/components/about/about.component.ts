@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+authors=['Melanie Desrochers','Eleanor Hébert','Martin Wasselet']
+title = "Made with 💙 by "
+
   constructor() { }
 
   ngOnInit(): void {

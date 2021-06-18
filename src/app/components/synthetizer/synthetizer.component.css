@@ -1,4 +1,9 @@
 app-settings-area {
   display: flex;
   justify-content: space-evenly;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+app-keyboard {
+  font-family: "Space Grotesk", sans-serif;
 }

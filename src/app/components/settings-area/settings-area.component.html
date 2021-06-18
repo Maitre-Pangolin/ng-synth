@@ -1,19 +1,27 @@
 <ng-container *ngIf="preset">
   <div class="container-settings">
-    <h3>ADSR</h3>
+    <h3>A D S R</h3>
     <app-slider [sliderParam]="propSliderAttack"></app-slider>
     <app-slider [sliderParam]="propSliderDecay"></app-slider>
     <app-slider [sliderParam]="propSliderSustain"></app-slider>
     <app-slider [sliderParam]="propSliderRelease"></app-slider>
   </div>
-  <div class="container-settings">
-    <h3>Effects</h3>
-    <app-slider [sliderParam]="propSliderPanner"></app-slider>
-    <app-slider [sliderParam]="propSliderFilter"></app-slider>
-  </div>
+
   <div>
     <div class="container-settings">
-      <h3>Waveform</h3>
+      <h3>EFFECTS</h3>
+      <app-slider [sliderParam]="propSliderPanner"></app-slider>
+      <app-slider [sliderParam]="propSliderFilter"></app-slider>
+    </div>
+    <div class="container-settings">
+      <h3>MASTER</h3>
+      <app-slider [sliderParam]="propSliderVolume"></app-slider>
+    </div>
+  </div>
+
+  <div>
+    <div class="container-settings">
+      <h3>WAVEFORM</h3>
       <div class="btn-container">
         <button
           *ngFor="let waveForm of waveForms"
@@ -28,10 +36,43 @@
       </div>
     </div>
     <div class="container-settings">
-      <h3>Master</h3>
-      <app-slider [sliderParam]="propSliderVolume"></app-slider>
+      <h3>PRESET</h3>
+      <div class="btn-container preset">
+        <button
+          (click)="selectedPreset = 1"
+          [ngStyle]="{
+            'background-color': selectedPreset == 1 ? 'red' : 'white'
+          }"
+        >
+          1
+        </button>
+
+        <button
+          (click)="selectedPreset = 2"
+          [ngStyle]="{
+            'background-color': selectedPreset == 2 ? 'red' : 'white'
+          }"
+        >
+          2
+        </button>
+
+        <button
+          (click)="selectedPreset = 3"
+          [ngStyle]="{
+            'background-color': selectedPreset == 3 ? 'red' : 'white'
+          }"
+        >
+          3
+        </button>
+        <div class="server-btn">
+          <button (click)="loadPreset(selectedPreset)">Load</button>
+          <button (click)="savePreset(selectedPreset)">Send</button>
+        </div>
+      </div>
     </div>
   </div>
-  <button (click)="savePreset(2)">SET</button>
-  <button (click)="loadPreset(2)">GET</button>
 </ng-container>
+<div class="DBerror" *ngIf="displayDBError">
+  <h1>Server was not reached</h1>
+  <h1>Please run json-server</h1>
+</div>

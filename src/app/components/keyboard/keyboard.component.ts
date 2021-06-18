@@ -12,9 +12,9 @@ export class KeyboardComponent implements OnInit {
   octaves = this.audioService.octaves
 
 keys:string[]=[];
-selectedKey:string
 
-  constructor(private audioService:AudioService) { }
+
+  constructor(public audioService:AudioService) { }
 
   ngOnInit(): void {
     this.octaves.forEach(octave=>{

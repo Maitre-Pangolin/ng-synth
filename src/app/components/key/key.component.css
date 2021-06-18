@@ -29,7 +29,7 @@ span {
 .black-key {
   width: 26px;
   height: 110px;
-  background-color: darkblue;
-  margin: 0 -12px 0 -12px;
+  background-color: black;
+  margin: 0 -14px 0 -14px;
   z-index: 2;
 }

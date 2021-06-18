@@ -20,10 +20,9 @@ synthNotes:SynthNote[]=[];
   createSynthNotes(preset:Preset){
 
         this.octaves.forEach(octave=>{
-          let context = new Tone.Context({ latencyHint: "balanced" });
-          Tone.setContext(context);   
-          context = new Tone.Context({ latencyHint: "playback" });
-          Tone.setContext(context);
+          //let context = new Tone.Context({ latencyHint: "balanced" });
+          //Tone.setContext(context);   
+          Tone.setContext(new Tone.Context({ latencyHint : "playback" }))
           this.notes.forEach(note=>{
             
             const key=note+octave

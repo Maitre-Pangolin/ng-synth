@@ -20,7 +20,8 @@ propSliderRelease;
 propSliderVolume;
 propSliderPanner;
 propSliderFilter;
-
+displayDBError=false;
+selectedPreset=1
 
 waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbol:String.fromCharCode(0x03A0)},{name:'sawtooth',symbol:String.fromCharCode(0x1D0E)},{name:'triangle',symbol:String.fromCharCode(0x02C4)}]
 
@@ -28,7 +29,7 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
 
   ngOnInit(): void {
 
-    //this.preset=this.audioService.getPreset()
+    this.audioService.isLoaded=false
     this.presetService.getPreset(1).subscribe(preset=>{
       this.audioService.createSynthNotes(preset)
       this.preset=preset
@@ -116,11 +117,12 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
           this.preset.filter=this.propSliderFilter.value
         }
       }
-
+      this.displayDBError=false;
     },
     (error)=>{
-      console.log('Not Loaded')
-      this.router.navigate(['/about']) //SHOULD BE ROUTED TO A PAGE SAYING THAT SERVER IS NOT REACHABLE (START JSON-SERVER)
+      //console.log('Not Loaded')
+      //this.router.navigate(['/about']) //SHOULD BE ROUTED TO A PAGE SAYING THAT SERVER IS NOT REACHABLE (START JSON-SERVER)
+      this.displayDBError=true;
     }
     )
 
