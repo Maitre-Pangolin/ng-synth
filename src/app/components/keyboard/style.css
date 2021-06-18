@@ -1,0 +1,416 @@
+*
+{
+    background-color:gray;
+}
+
+                      /* note Blanche   */
+
+.C3_Note{
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 22px;
+    padding-left: 23px;
+    z-index: 50;
+    background-color: white;
+    cursor: pointer;
+    left: 366px;
+    top: 142px;
+}
+.D3_Note{
+    position: absolute;
+    z-index: 51;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 22px;
+    padding-left: 23px;
+    margin-left: 58px;
+    background-color: white;
+    cursor: pointer;
+    left: 369px;
+    top: 142px;
+}
+.E3_Note{
+    position: absolute;
+    z-index: 53;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 21px;
+    padding-left: 23px;
+    margin-left: 116px;
+    background-color: white;
+    cursor: pointer;
+    left: 372px;
+    top: 142px;
+}
+.F3_Note{
+    position: absolute;
+    z-index: 55;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 174px;
+    background-color: white;
+    cursor: pointer;
+    left: 375px;
+    top: 142px;
+}
+.G3_Note{
+    position: absolute;
+    z-index: 57;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 233px;
+    background-color: white;
+    cursor: pointer;
+    left: 378px;
+    top: 142px;
+}
+.A3_Note{
+    position: absolute;
+    z-index: 59;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 292px;
+    background-color: white;
+    cursor: pointer;
+    left: 381px;
+    top: 142px;
+}
+.B3_Note{
+    position: absolute;
+    z-index: 61;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 351px;
+    background-color: white;
+    cursor: pointer;
+    left: 384px;
+    top: 142px;
+}
+.C4_Note{
+    position: absolute;
+    z-index: 63;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 410px;
+    background-color: white;
+    cursor: pointer;
+    left: 387px;
+    top: 142px;
+}
+.D4_Note{
+    position: absolute;
+    z-index: 65;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 470px;
+    background-color: white;
+    cursor: pointer;
+    left: 390px;
+    top: 142px;
+}
+
+.E4_Note{
+    position: absolute;
+    z-index: 67;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 529px;
+    background-color: white;
+    cursor: pointer;
+    left: 393px;
+    top: 142px;
+}
+.F4_Note{
+    position: absolute;
+    z-index: 69;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 588px;
+    background-color: white;
+    cursor: pointer;
+    left: 396px;
+    top: 142px;
+}
+.G4_Note{
+    position: absolute;
+    z-index: 71;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 647px;
+    background-color: white;
+    cursor: pointer;
+    left: 399px;
+    top: 142px;
+}
+.H4_Note{
+    position: absolute;
+    z-index: 73;
+    color: black;
+    position: absolute;
+    padding-top: 258px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 23px;
+    margin-left: 706px;
+    background-color: white;
+    cursor: pointer;
+    left: 402px;
+    top: 142px;
+}
+
+                                        /*  Note Noire   */
+.C3s_Note{
+    position: absolute;
+    z-index: 52;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 26px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 364px;
+    top: 142px;
+}
+.D3s_Note{
+    position: absolute;
+    z-index: 54;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 90px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 363px;
+    top: 142px;
+}
+.E3s_Note
+{
+    position: absolute;
+    z-index: 56;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 154px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 362px;
+    top: 142px;
+}
+.F3s_Note
+{
+    position: absolute;
+    z-index: 58;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 218px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 361px;
+    top: 142px;
+}
+.G3s_Note
+{
+    position: absolute;
+    z-index: 60;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 282px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 360px;
+    top: 142px;
+}
+.A3s_Note
+{
+    position: absolute;
+    z-index: 62;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 346px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 359px;
+    top: 142px;
+}
+.C4s_Note
+{
+    position: absolute;
+    z-index: 64;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 410px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 358px;
+    top: 142px;
+}
+.D4s_Note
+{
+    position: absolute;
+    z-index: 66;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 474px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 357px;
+    top: 142px;
+}
+.E4s_Note
+{
+    position: absolute;
+    z-index: 68;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 537px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 356px;
+    top: 142px;
+}
+.F4s_Note
+{
+    position: absolute;
+    z-index: 70;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 600px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 355px;
+    top: 142px;
+}
+.G4s_Note
+{
+    position: absolute;
+    z-index: 72;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 663px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 354px;
+    top: 142px;
+}
+.H4s_Note
+{
+    position: absolute;
+    z-index: 74;
+    padding-top: 180px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    padding-left: 18px;
+    margin-left: 726px;
+    background-color:black;
+    color: white;
+    border-color: black;
+    border-color: red;
+    cursor: pointer;
+    left: 353px;
+    top: 142px;
+}
+
+
+
+
+
+
+
+
+
+
+

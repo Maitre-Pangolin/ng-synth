@@ -13,10 +13,13 @@ export class SettingsAreaComponent implements OnInit {
 
 preset:Preset;
 propSliderAttack;
+propSliderDecay;
+propSliderSustain;
 propSliderRelease;
 propSliderVolume;
 propSliderPanner;
 propSliderFilter;
+
 
 waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbol:String.fromCharCode(0x03A0)},{name:'sawtooth',symbol:String.fromCharCode(0x1D0E)},{name:'triangle',symbol:String.fromCharCode(0x02C4)}]
 
@@ -28,18 +31,6 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
     this.presetService.getPreset(1).subscribe(preset=>{
       this.audioService.createSynthNotes(preset)
       this.preset=preset
- 
-      this.propSliderRelease={
-        name:'Release',
-        min:0.1,
-        max:1,
-        step:0.1,
-        value:this.preset.adsr.release,
-        action:()=> {
-          this.audioService.setRelease(this.propSliderRelease.value)
-          this.preset.adsr.release=this.propSliderRelease.value
-        }
-      }
 
       this.propSliderAttack={
         name:'Attack',
@@ -52,7 +43,43 @@ waveForms=[{name:'sine',symbol:String.fromCharCode(0x223F)},{name:'square',symbo
           this.preset.adsr.attack=this.propSliderAttack.value
         }
       }
+
+      this.propSliderDecay={
+        name:'Decay',
+        min:0.1,
+        max:2,
+        step:0.1,
+        value:this.preset.adsr.decay,
+        action:()=> {
+          this.audioService.setDecay(this.propSliderDecay.value)
+          this.preset.adsr.decay=this.propSliderDecay.value
+        }
+      }
+
+      this.propSliderSustain={
+        name:'Sustain',
+        min:0,
+        max:1,
+        step:0.1,
+        value:this.preset.adsr.sustain,
+        action:()=> {
+          this.audioService.setSustain(this.propSliderSustain.value)
+          this.preset.adsr.sustain=this.propSliderSustain.value
+        }
+      }
   
+      this.propSliderRelease={
+        name:'Release',
+        min:0.1,
+        max:1,
+        step:0.1,
+        value:this.preset.adsr.release,
+        action:()=> {
+          this.audioService.setRelease(this.propSliderRelease.value)
+          this.preset.adsr.release=this.propSliderRelease.value
+        }
+      }
+
       this.propSliderVolume={
         name:'Volume',
         min:0,
